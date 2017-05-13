@@ -3,20 +3,17 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)];
 };
 
-//Setting and displaying the answer
-var guesses = document.querySelectorAll(".guess")
-var answer = "";
+var guesses = document.querySelectorAll(".guess");
 var randomMovie = "";
-//var movies = [{"title": "Bourne Supremacy", "director": "Paul Greengrass"}, {"title": "Inception", "director": "Christopher Nolan"}, {"title": "Lord of the Rings", "director": "Peter Jackson"}, {"title": "Grand Budapest Hotel", "director": "Wes Anderson"}, {"title": "Eternal Sunshine of the Spotless Mind", "director": "Charlie Kaufmann"}, {"title": "Argo", "director": "Ben Affleck"}, {"title": "Snatch", "director": "Guy Ritchie"}, {"title": "Star Wars", "director": "George Lucas"}];
 var movies = [{"title": "Bourne Supremacy", "video": "bournesupremacy.mp4"}, {"title": "Inception", "video": "inception.mp4"}, {"title": "Lord of the Rings", "video": "lotr.mp4"}, {"title": "Grand Budapest Hotel", "video": "grandbudapest.mp4"}, {"title": "Eternal Sunshine of the Spotless Mind", "video": "eternalsunshine.mp4"}, {"title": "Argo", "video": "argo.mp4"}, {"title": "Snatch", "video": "snatch.mp4"}, {"title": "Rogue One", "video": "rogueone.mp4"}];
 var video = document.getElementById("video");
 var source = document.createElement("source");
 
 //Choose answer; Select 4 options and display
 function createAnswerButtons() {
-	//Select 4 unique potential answers
-	var tempMovies = movies.slice(movies);
 	var arr = [];
+	//Create potential answers
+	var tempMovies = movies.slice(movies);
 	for (var x = 0; x < 4; x++) {
 		var index = Math.floor(Math.random() * tempMovies.length);
 		var removed = tempMovies.splice(index, 1);
@@ -45,7 +42,7 @@ function checkAnswer() {
 			} else {
 				document.getElementById("p1").innerHTML = "Incorrect!";
 			}
-		})
+		});
 	}
 }
 
