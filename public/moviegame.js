@@ -42,9 +42,9 @@ function checkAnswer() {
 			var clickedAnswer = this.innerHTML;
 			document.getElementById("video").pause();
 			if(clickedAnswer === randomMovie.title) {
-				document.getElementById("p1").innerHTML = "Correct!";
+				document.getElementById("checked").innerHTML = "Correct!";
 			} else {
-				document.getElementById("p1").innerHTML = "Incorrect!";
+				document.getElementById("checked").innerHTML = "Incorrect!";
 			}
 		});
 	}
@@ -55,9 +55,9 @@ document.getElementById("removeSourceButton").addEventListener("click", function
 });
 
 document.getElementById("start").addEventListener("click", function(){
-	document.getElementById("myDIV").style.visibility = "visible";
+	document.getElementById("answerField").style.visibility = "visible";
 	document.getElementById("start").innerHTML = "Next";
-	document.getElementById("p1").innerHTML = "";
+	document.getElementById("checked").innerHTML = "";
 	createAnswerButtons();
 	checkAnswer();
 });
