@@ -47,6 +47,7 @@ function checkAnswer() {
 }
 
 document.getElementById("start").addEventListener("click", function(){
+	document.getElementById("myDIV").style.visibility = "visible";
 	createAnswerButtons();
 	checkAnswer();
 });
