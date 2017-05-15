@@ -6,8 +6,26 @@ Array.prototype.randomElement = function () {
 var guesses = document.querySelectorAll(".guess");
 var randomMovie = "";
 var movies = [{"title": "Bourne Supremacy", "video": "bournesupremacy.mp4"}, {"title": "Inception", "video": "inception.mp4"}, {"title": "Lord of the Rings", "video": "lotr.mp4"}, {"title": "Grand Budapest Hotel", "video": "grandbudapest.mp4"}, {"title": "Eternal Sunshine of the Spotless Mind", "video": "eternalsunshine.mp4"}, {"title": "Argo", "video": "argo.mp4"}, {"title": "Snatch", "video": "snatch.mp4"}, {"title": "Rogue One", "video": "rogueone.mp4"}];
-var video = document.getElementById("video");
-var source = document.createElement("source");
+var vidElement = "";
+var videoParent = "";
+var source = "";
+
+//Create video element
+function createVideo (){
+	vidElement = document.createElement("video");
+	videoParent = document.getElementById("videoParent");
+	videoParent.appendChild(vidElement);
+	vidElement.id = "video";
+	vidElement.width = 320;
+	vidElement.height = 240;
+	vidElement.autoplay = true;
+	source = document.createElement("source");
+}
+
+//Remove video
+function removeVideo() {
+	vidElement.parentNode.removeChild(vidElement);
+}
 
 //Choose answer; Select 4 options and display
 function createAnswerButtons() {
@@ -22,7 +40,7 @@ function createAnswerButtons() {
 	//Select 1 answer out of the 4
 	randomMovie = arr.randomElement();
 	source.setAttribute("src", randomMovie.video);
-	video.appendChild(source);
+	vidElement.appendChild(source);
 	//Display potential answers as buttons
 	for (var i = 0; i < guesses.length; i++) {
 		for(var j = 0; j < movies.length; j++) {
@@ -51,8 +69,16 @@ document.getElementById("start").addEventListener("click", function(){
 	document.getElementById("answerField").style.visibility = "visible";
 	document.getElementById("start").innerHTML = "Next";
 	document.getElementById("checked").innerHTML = "";
-	createAnswerButtons();
-	checkAnswer();
+	if (vidElement === "") {
+		createVideo();
+		createAnswerButtons();
+		checkAnswer();
+	} else {
+		removeVideo();
+		createVideo();
+		createAnswerButtons();
+		checkAnswer();
+	}
 });
 
 //http://stackoverflow.com/questions/37771282/how-do-i-select-random-values-from-an-array-in-javascript-or-jquery
