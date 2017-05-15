@@ -1,5 +1,7 @@
-These are the goals for version 3
+These are the goals to make for version 2
 
-1) Add videos to c9 - done
+1) Make the "Start" button create the html page - yep
 
-2) Make is so the "Next" button selects a new movie
+2) Add a "Next" button once the page has been created to reset
+
+3) Stop video when an answer is clicked
