@@ -1,6 +1,6 @@
 These are the goals to make for version 2
 
-1) Make the "Start" button create the html page
+1) Make the "Start" button create the html page - yep
 
 2) Add a "Next" button once the page has been created to reset
 
