@@ -37,6 +37,7 @@ function checkAnswer() {
 	for(var i = 0; i < guesses.length; i++) {
 		guesses[i].addEventListener("click", function(){
 			var clickedAnswer = this.innerHTML;
+			document.getElementById("video").pause();
 			if(clickedAnswer === randomMovie.title) {
 				document.getElementById("p1").innerHTML = "Correct!";
 			} else {
