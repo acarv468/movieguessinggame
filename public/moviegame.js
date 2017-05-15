@@ -8,13 +8,10 @@ var randomMovie = "";
 var movies = [{"title": "Bourne Supremacy", "video": "bournesupremacy.mp4"}, {"title": "Inception", "video": "inception.mp4"}, {"title": "Lord of the Rings", "video": "lotr.mp4"}, {"title": "Grand Budapest Hotel", "video": "grandbudapest.mp4"}, {"title": "Eternal Sunshine of the Spotless Mind", "video": "eternalsunshine.mp4"}, {"title": "Argo", "video": "argo.mp4"}, {"title": "Snatch", "video": "snatch.mp4"}, {"title": "Rogue One", "video": "rogueone.mp4"}];
 var video = document.getElementById("video");
 var source = document.createElement("source");
-var sourceElement = "";
 
 //Choose answer; Select 4 options and display
 function createAnswerButtons() {
 	var arr = [];
-	source.id = "videoSource";
-	sourceElement = document.getElementById("videoSource");
 	//Create potential answers
 	var tempMovies = movies.slice(movies);
 	for (var x = 0; x < 4; x++) {
@@ -49,10 +46,6 @@ function checkAnswer() {
 		});
 	}
 }
-
-document.getElementById("removeSourceButton").addEventListener("click", function(){
-	source.parentNode.removeChild(source);
-});
 
 document.getElementById("start").addEventListener("click", function(){
 	document.getElementById("answerField").style.visibility = "visible";
